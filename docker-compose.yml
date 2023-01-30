@@ -8,8 +8,6 @@ services:
       POSTGRES_DB: mydb
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
-    volumes:
-      - pgdata:/var/lib/postgresql/data/e
   web:
     container_name: web
     build: .
@@ -34,4 +32,3 @@ services:
 
 volumes:
   static_volume:
-  pgdata:
