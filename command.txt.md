@@ -21,7 +21,7 @@ docker push mdnazmulhossain/emv2-django-backend:backend
 # ECS Connect to docker hub private repository
 ```
 ECS_ENGINE_AUTH_TYPE=docker
-ECS_ENGINE_AUTH_DATA={"https://index.docker.io/v1/":{"username":"mdnazmulhossain","password":"Mn@150148","email":"nazmul.cse48@gmail.com"}}
+ECS_ENGINE_AUTH_DATA={"https://index.docker.io/v1/":{"username":"mdnazmulhossain",
 ```
 
 [help](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth-container-instances.html)
