@@ -2,18 +2,18 @@
 
 version: '3'
 services:
-  db:
-    image: postgres
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-    volumes:
-      -   db_data:/var/lib/postgresql/data
-    networks:
-      - djnetwork
+  # db:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_DB: postgres
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 123456
+  #   volumes:
+  #     -   db_data:/var/lib/postgresql/data
+  #   networks:
+  #     - djnetwork
 
-      
+
   web:
     container_name: web
     build: .
@@ -23,10 +23,10 @@ services:
     volumes:
       - .:/code
       - static_volume:/code/static
-    depends_on:
-      - db
-    networks:
-      - djnetwork
+    # depends_on:
+    #   - db
+    # networks:
+    #   - djnetwork
       
   # nginx:
   #   restart: always
@@ -40,12 +40,12 @@ services:
 
 volumes:
   static_volume:
-  db_data:
+#   db_data:
 
     
    
 
-networks:
-  djnetwork:
-    driver: bridge
+# networks:
+#   djnetwork:
+#     driver: bridge
   
