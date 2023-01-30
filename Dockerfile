@@ -8,7 +8,7 @@
 # CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 
 
-FROM python:3
+FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
 
