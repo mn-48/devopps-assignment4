@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - pgdata:/var/lib/postgresql/data/e
+  web:
+    container_name: web
+    build: .
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    ports:
+      - "80:8000"
+    volumes:
+      - .:/code
+      - static_volume:/code/static
+    depends_on:
+      - db
+      
+  # nginx:
+  #   restart: always
+  #   build: ./nginx/
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - static_volume:/code/static
+  #   links:
+  #     - web:web
+
+volumes:
+  static_volume:
+  pgdata:
