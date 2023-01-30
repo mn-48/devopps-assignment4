@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
     volumes:
-      - data/db:/var/lib/postgresql/data
+      -   db_data:/var/lib/postgresql/data
 
   web:
     container_name: web
@@ -35,3 +35,4 @@ services:
 
 volumes:
   static_volume:
+  db_data:
