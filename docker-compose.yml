@@ -10,7 +10,10 @@ services:
       POSTGRES_PASSWORD: 123456
     volumes:
       -   db_data:/var/lib/postgresql/data
+    networks:
+      - djnetwork
 
+      
   web:
     container_name: web
     build: .
@@ -22,6 +25,8 @@ services:
       - static_volume:/code/static
     depends_on:
       - db
+    networks:
+      - djnetwork
       
   # nginx:
   #   restart: always
@@ -36,3 +41,11 @@ services:
 volumes:
   static_volume:
   db_data:
+
+    
+   
+
+networks:
+  djnetwork:
+    driver: bridge
+  
