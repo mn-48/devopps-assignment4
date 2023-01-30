@@ -7,8 +7,8 @@ services:
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      
+      POSTGRES_PASSWORD: 123456
+
   web:
     container_name: web
     build: .
