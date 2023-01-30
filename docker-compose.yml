@@ -9,5 +9,6 @@ services:
     volumes:
       - .:/code
       - static_volume:/code/static
+      
 volumes:
   static_volume:
