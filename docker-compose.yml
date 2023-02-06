@@ -29,7 +29,6 @@ services:
     image: mdnazmulhossain/react-123
     ports:
       - "80:3000"
-
     depends_on:
       - web
     networks:
