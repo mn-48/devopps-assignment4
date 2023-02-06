@@ -1,6 +1,5 @@
 version: '3'
 services:
-
   db:
     image: postgres
     environment:
@@ -11,9 +10,11 @@ services:
       -   db_data:/var/lib/postgresql/data
     networks:
       - djnetwork
+
+
   backend:
     container_name: backend
-    build: .
+    build: ./backend
     command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     ports:
       - "8000:8000"
@@ -30,7 +31,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - web
+      - backend
     networks:
       - djnetwork
   
