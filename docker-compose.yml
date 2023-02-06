@@ -16,7 +16,7 @@ services:
     build: .
     command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     ports:
-      - "80:8000"
+      - "8000:8000"
     volumes:
       - .:/code
       - static_volume:/code/static
@@ -25,10 +25,15 @@ services:
     networks:
       - djnetwork
    
-
-
-    
-      
+  react:
+    image: mdnazmulhossain/react-123
+    ports:
+      - "80:3000"
+    depends_on:
+      - web
+    networks:
+      - djnetwork
+  
 volumes:
   static_volume:
 
