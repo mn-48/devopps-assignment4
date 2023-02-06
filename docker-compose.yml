@@ -6,17 +6,17 @@ services:
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
+      POSTGRES_PASSWORD: postgres
     volumes:
       -   db_data:/var/lib/postgresql/data
     networks:
       - djnetwork
-  web:
-    container_name: web
+  backend:
+    container_name: backend
     build: .
     command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     ports:
-      - "80:8000"
+      - "8000:8000"
     volumes:
       - .:/code
       - static_volume:/code/static
@@ -25,7 +25,7 @@ services:
     networks:
       - djnetwork
    
-  react:
+  frontend:
     image: mdnazmulhossain/react-123
     ports:
       - "3000:3000"
