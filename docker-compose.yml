@@ -19,7 +19,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/code
       - static_volume:/code/static
     depends_on:
       - db
@@ -29,7 +28,7 @@ services:
   frontend:
     image: mdnazmulhossain/react-123
     ports:
-      - "3000:3000"
+      - "80:3000"
     depends_on:
       - backend
     networks:
